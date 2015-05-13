@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Product:
+  = @consignment.product
+%p
+  %strong Quantity:
+  = @consignment.quantity
+%p
+  %strong User:
+  = @consignment.user
+= link_to 'Edit', edit_consignment_path(@consignment)
+|
+\#{link_to 'Back', consignments_path}

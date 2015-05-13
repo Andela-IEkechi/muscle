@@ -1,0 +1,31 @@
+= form_for(@release) do |f|
+  - if @release.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@release.errors.count, "error")
+        prohibited this release from being saved:
+      %ul
+        - @release.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :product_id
+    %br/
+    = f.text_field :product_id
+  .field
+    = f.label :quantity
+    %br/
+    = f.number_field :quantity
+  .field
+    = f.label :user_id
+    %br/
+    = f.text_field :user_id
+  .field
+    = f.label :invoice_number
+    %br/
+    = f.number_field :invoice_number
+  .field
+    = f.label :customer_number
+    %br/
+    = f.number_field :customer_number
+  .actions
+    = f.submit

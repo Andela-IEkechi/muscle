@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Product:
+  = @release.product
+%p
+  %strong Quantity:
+  = @release.quantity
+%p
+  %strong User:
+  = @release.user
+%p
+  %strong Invoice number:
+  = @release.invoice_number
+%p
+  %strong Customer number:
+  = @release.customer_number
+= link_to 'Edit', edit_release_path(@release)
+|
+\#{link_to 'Back', releases_path}
