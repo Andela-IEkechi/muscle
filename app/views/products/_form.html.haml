@@ -7,15 +7,15 @@
       %ul
         - @product.errors.full_messages.each do |message|
           %li= message
-  .field
+  .field.form-group
     = f.label :name
     %br/
     = f.text_field :name
-  .field
+  .field.form-group
     = f.label :quantity
     %br/
     = f.number_field :quantity
-  .field
+  .field.form-group
     = f.label :user_id
     %br/
     = f.text_field :user_id
