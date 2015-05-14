@@ -5,22 +5,40 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %nav.navbar.navbar-default
-      .container.text-center
-        .navbar-brand.text-center
-          = link_to 'Muscle', root_path, class: ''
-        %p.navbar-text.pull-right
-          - if user_signed_in?
-            Logged in as
-            = succeed "." do
-              %strong= current_user.email
-            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'
-          - else
-            = link_to "Login", new_user_session_path, class: 'navbar-link'
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
-    .container.wrapper
-      = yield
+  %body.body
+    #wrapper
+      %nav.navbar.navbar-default
+        .container.text-center
+          .navbar-brand.text-center
+            = link_to 'Muscle', root_path, class: ''
+          %p.navbar-text.pull-right
+            - unless !user_signed_in?
+              = succeed "." do
+                %strong= current_user.name
+              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'
+          .collapse.navbar-collapse.navbar-ex1-collapse
+            %ul.nav.navbar-nav.side-nav
+              %li
+                = link_to :products do
+                  %i.fa.fa-fw.fa-home
+                  All Products
+              %li
+                = link_to :invoices do
+                  %i.fa.fa-fw.fa-file
+                  Invoices
+              %li
+                = link_to :consignments do
+                  %i.fa.fa-fw.fa-external-link
+                  New Consignments
+              %li
+                = link_to :releases do
+                  %i.fa.fa-fw.fa-external-link
+                  Collected Products
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      #page-wrapper
+        .container-fluid
+          .row
+            = yield
