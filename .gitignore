@@ -24,7 +24,6 @@
 /app/assets/.DS_Store
 /db/.DS_Store
 /.bundle
-/components/api/spec/dummy/public/uploads/
 /.DS_Store
 /public/uploads
 # Ignore the default SQLite database.
@@ -33,14 +32,7 @@
 # Ignore all logfiles and tempfiles.
 /tmp
 **/log/*.log
-components/enterprise_portal/test/dummy/public/uploads/
-components/enterprise_portal/test/dummy/tmp/
-components/organizations/spec/dummy/public/uploads/
-components/content_library/spec/dummy/public/uploads
-dump.rdb
 .idea/
-.powenv
-
 # Ignore application configuration
 /config/application.yml
 .DS_Store
