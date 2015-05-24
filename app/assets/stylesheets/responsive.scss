@@ -8,17 +8,11 @@
     background-color: #63305a;
     position: absolute;
     z-index: 2;
-    display: none;
+    display: block;
   }
 
   .content_wrapper {
-    margin-left: 20px;
-  }
-
-  #button-toggle {
-    display: block;
-    bottom: 0;
-    z-index: 5;
+    margin-left: 50px;
   }
 }
 
@@ -30,16 +24,13 @@
     left: 0;
     width: 200px;
     background-color: #63305a;
+    display: block !important;
   }
 
   .content_wrapper {
     margin-left: 220px;
     overflow-y: scroll;
     bottom: 0;
-  }
-
-  #button-toggle {
-//    display: none;
   }
 }
 

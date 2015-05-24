@@ -2,9 +2,12 @@
   .container.text-center
     .navbar-brand.text-center
       = link_to 'Muscle', root_path, class: ''
-    %p.navbar-text.pull-right
+    %button.navbar-toggle#button-toggle
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .navbar-text.pull-right
       - unless !user_signed_in?
         = succeed "." do
-          %button#button-toggle toggle
           %strong= current_user.name
         = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'
