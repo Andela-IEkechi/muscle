@@ -11,9 +11,10 @@
     - if alert
       %p.alert.alert-danger= alert
     = render 'layouts/header'
-  .row
-    .sidebar_toggle#sidebar
-      .sidebar
-        = render 'layouts/sidebar'
-    .content_wrapper
-      = yield
+    .row
+      = unless !user_signed_in?
+        .sidebar_toggle#sidebar
+          .sidebar
+            = render 'layouts/sidebar'
+      .content_wrapper
+        = yield

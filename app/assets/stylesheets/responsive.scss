@@ -12,7 +12,8 @@
   }
 
   .content_wrapper {
-    margin-left: 50px;
+    width: 100%;
+    left: 0;
   }
 }
 
@@ -22,24 +23,14 @@
     top: 60px;
     bottom: 0;
     left: 0;
-    width: 200px;
-    background-color: #63305a;
+    width: 25%;
     display: block !important;
   }
 
   .content_wrapper {
-    margin-left: 220px;
+    margin-left: 26%;
     overflow-y: scroll;
     bottom: 0;
-  }
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-  .sidebar {
-    width: 300px;
-  }
-  .content_wrapper {
-    margin-left: 350px;
+    width: 75%;
   }
 }
