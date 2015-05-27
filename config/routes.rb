@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :invoices
   resources :releases
-  resources :consignments
+  resources :consignments, skip: [:edit, :update, :show, :destroy]
   resources :products
   devise_for :users, skip: [:registrations]
 

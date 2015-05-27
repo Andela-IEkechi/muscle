@@ -10,11 +10,8 @@
   %tbody
     - @consignments.each do |consignment|
       %tr
-        %td= consignment.product
+        %td= consignment.product.name
         %td= consignment.quantity
-        %td= consignment.user
-        %td= link_to 'Show', consignment
-        %td= link_to 'Edit', edit_consignment_path(consignment)
-        %td= link_to 'Destroy', consignment, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= consignment.user.name
 %br/
 = link_to 'New Consignment', new_consignment_path

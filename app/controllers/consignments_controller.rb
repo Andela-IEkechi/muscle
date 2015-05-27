@@ -25,6 +25,7 @@ class ConsignmentsController < ApplicationController
   # POST /consignments.json
   def create
     @consignment = Consignment.new(consignment_params)
+    @consignment.user = current_user
 
     respond_to do |format|
       if @consignment.save
