@@ -1,0 +1,16 @@
+.form-wrapper {
+    max-width: 600px;
+}
+
+.form-wrapper input[type=number] {
+    outline: solid thin;
+    outline-color: #2E2F30;
+}
+
+form input[type=submit] {
+    background-color: #707473;
+}
+
+form input[type=submit]:hover {
+    background-color: #707200;
+}
