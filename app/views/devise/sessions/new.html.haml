@@ -1,7 +1,7 @@
 .login_wrapper.text-center
   .form-signin
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      %h2.form-signin-headingPlease Log in
+      %h2.form-signin-heading Log in
       .field.form-group
         = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"
       .field.form-group
