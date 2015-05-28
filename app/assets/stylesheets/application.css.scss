@@ -25,14 +25,23 @@
 // And finally bootswatch style itself
 @import "bootswatch/paper/bootswatch";
 
-.content_wrapper {
-  overflow-y: scroll;
-  bottom: 0;
-  top: 30px;
+body {
+  height: 100%;
+  padding-top: 60px;
+  background-color: rgba(33, 14, 12, .6);
 }
 
-body {
-    padding-top: 60px;
+.row {
+  height: 100%;
+}
+
+.content_wrapper {
+  position: fixed;
+  background-color: #fff;
+  overflow-y: scroll;
+  top: 60px;
+  bottom: 0;
+  padding-left: 50px;
 }
 //
 //.huge {
@@ -40,12 +49,14 @@ body {
 //    line-height: normal;
 //}
 
-.login {
-    margin: 15% 35%;
-    width: 30%;
-    height: 40%;
+.sidebar {
+  background-color: #707473;
 }
 
 .sidebar_toggle .sidebar {
   display: none;
+}
+.logo {
+  position: absolute;
+  top: 0;
 }

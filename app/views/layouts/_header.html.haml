@@ -1,13 +1,13 @@
 .navbar.navbar-default.navbar-fixed-top
   .container.text-center
     .navbar-brand.text-center
-      = link_to 'Muscle', root_path, class: ''
-    %button.navbar-toggle#button-toggle
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    .navbar-text.pull-right
-      - unless !user_signed_in?
+      =link_to( image_tag('logo.jpg', width: "150", class: "logo"), root_path)
+    - unless !user_signed_in?
+      %button.navbar-toggle#button-toggle
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-text.pull-right
         = succeed "." do
           %strong= current_user.name
         = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'

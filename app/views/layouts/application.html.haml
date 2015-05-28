@@ -1,9 +1,10 @@
 !!!
 %html
   %head
-    %title Muscle
+    %title SyncDuct
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.jpg'
     = csrf_meta_tags
   %body
     - if notice
@@ -11,9 +12,11 @@
     - if alert
       %p.alert.alert-danger= alert
     = render 'layouts/header'
-  .row
-    .sidebar_toggle#sidebar
-      .sidebar
-        = render 'layouts/sidebar'
-    .content_wrapper
-      = yield
+    .container-fluid
+      .row
+        = unless !user_signed_in?
+          .sidebar_toggle#sidebar
+            .sidebar
+              = render 'layouts/sidebar'
+        .content_wrapper
+          = yield
