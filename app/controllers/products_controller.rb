@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :can_delete_product]
 
   # GET /products
   # GET /products.json
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
 
     respond_to do |format|
       if @product.save
@@ -65,6 +66,12 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def can_delete_product
+      unless @product.user == current_user
+         redirect_to :back, notice: 'You are not authorized to delete this Product. You did not Create it!'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

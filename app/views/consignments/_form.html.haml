@@ -10,14 +10,12 @@
   .field
     = f.label :product_id
     %br/
-    = f.text_field :product_id
+    = f.collection_select :product_id, Product.order(:name), :id, :name, include_blank: true
   .field
     = f.label :quantity
     %br/
     = f.number_field :quantity
-  .field
-    = f.label :user_id
-    %br/
-    = f.text_field :user_id
+    %span.input-group-addon
+      %i.fa.fa-database Crates
   .actions
-    = f.submit
+    = f.submit 'Record Consignment', data: { class: "btn btn-lg btn-primary btn-block", disable_with: "Please wait...", confirm: "Are you sure the Quantity of this Consignment is Correct? You cannot Edit or Delete this consignment once Posted!" }
