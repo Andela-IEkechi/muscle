@@ -40,6 +40,8 @@ gem "haml-rails", "~> 0.9"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # for debugging
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
