@@ -33,6 +33,9 @@ gem "haml-rails", "~> 0.9"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# For including pagination and sorting order to tables
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
