@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 24c0513a93cbd749da252dc85bf26e5ef46f5a5f
+  specs:
+    jquery-datatables-rails (3.3.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,8 +194,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -212,6 +220,7 @@ DEPENDENCIES
   haml
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
+  jquery-datatables-rails!
   jquery-rails
   pg
   pry
@@ -220,6 +229,5 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
-  turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

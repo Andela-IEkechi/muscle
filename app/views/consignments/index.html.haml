@@ -1,17 +1,15 @@
-%p#notice= notice
 %h1 Listing Consignments
-%table
-  %thead
-    %tr
-      %th Product
-      %th Quantity
-      %th User
-      %th{:colspan => "3"}
-  %tbody
-    - @consignments.each do |consignment|
+.table-responsive
+  %table#consignments.table.table-bordered.table-hover
+    %thead
       %tr
-        %td= consignment.product.name
-        %td= consignment.quantity
-        %td= consignment.user.name
-%br/
-= link_to 'New Consignment', new_consignment_path
+        %th Product
+        %th Quantity
+        %th User
+    %tbody
+      - @consignments.each do |consignment|
+        %tr
+          %td= consignment.product.name
+          %td= consignment.quantity
+          %td= consignment.user.name
+= link_to(raw('<span class="glyphicon glyphicon-plus"></span> Add New Consignment'), new_consignment_path)
