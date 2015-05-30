@@ -1,18 +1,18 @@
 %h1 Listing Products
-%table
-  %thead
-    %tr
-      %th Name
-      %th Quantity
-      %th Creator
-      %th Actions
-      %th{:colspan => "3"}
-  %tbody
-    - @products.each do |product|
+.table-responsive
+  %table.table.table-bordered.table-hover
+    %thead
       %tr
-        %td= product.name
-        %td= product.quantity
-        %td= product.user.name
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %th Name
+        %th Quantity
+        %th Added By
+        %th Actions
+        -#%th{:colspan => "3"}
+    %tbody
+      - @products.each do |product|
+        %tr
+          %td= product.name
+          %td= product.quantity
+          %td= product.user.name
+          %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 = link_to 'New Product', new_product_path
