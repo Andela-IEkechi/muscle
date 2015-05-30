@@ -1,24 +1,27 @@
-%p#notice= notice
 %h1 Listing Invoices
-%table
-  %thead
-    %tr
-      %th Product
-      %th Customer name
-      %th Customer phone
-      %th Invoice number
-      %th Customer address
-      %th{:colspan => "3"}
-  %tbody
-    - @invoices.each do |invoice|
+.table-responsive
+  %table#invoices.table.table-bordered.table-hover
+    %thead
       %tr
-        %td= invoice.product
-        %td= invoice.customer_name
-        %td= invoice.customer_phone
-        %td= invoice.invoice_number
-        %td= invoice.customer_address
-        %td= link_to 'Show', invoice
-        %td= link_to 'Edit', edit_invoice_path(invoice)
-        %td= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Invoice', new_invoice_path
+        %th Product
+        %th Customer name
+        %th Customer phone
+        %th Invoice number
+        %th Customer address
+        %th Actions
+    %tbody
+      - @invoices.each do |invoice|
+        %tr
+          %td= invoice.product.name
+          %td= invoice.customer_name
+          %td= invoice.customer_phone
+          %td= invoice.invoice_number
+          %td= invoice.customer_address
+          %td
+            = link_to(raw('<span class="glyphicon glyphicon-eye-open"></span> View'), invoice)
+            %br
+            = link_to(raw('<span class="glyphicon glyphicon-edit"></span> Edit'), edit_invoice_path(invoice))
+            %br
+            = link_to(raw('<span class="glyphicon glyphicon-trash"></span> Delete'), invoice,
+            method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' })
+= link_to(raw('<span class="glyphicon glyphicon-plus"></span> Create New Invoice'), new_invoice_path, class: "text-success")
