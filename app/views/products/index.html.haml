@@ -14,5 +14,5 @@
           %td= product.name
           %td= product.quantity
           %td= product.user.name
-          %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Delete Product', product, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' }
 = link_to 'New Product', new_product_path
