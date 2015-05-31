@@ -15,13 +15,10 @@
           %td= invoice.product.name
           %td= invoice.customer_name
           %td= invoice.customer_phone
-          %td= invoice.invoice_number
+          %td= link_to invoice.invoice_number, invoice, title: "View Invoice"
           %td= invoice.customer_address
           %td
-            = link_to(raw('<span class="glyphicon glyphicon-eye-open"></span> View'), invoice)
-            %br
-            = link_to(raw('<span class="glyphicon glyphicon-edit"></span> Edit'), edit_invoice_path(invoice))
-            %br
-            = link_to(raw('<span class="glyphicon glyphicon-trash"></span> Delete'), invoice,
-            method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' })
-= link_to(raw('<span class="glyphicon glyphicon-plus"></span> Create New Invoice'), new_invoice_path, class: "text-success")
+            = link_to(('<span class="fa fa-pencil-square-o"></span>').html_safe, edit_invoice_path(invoice), title: "Edit Invoice")
+            = link_to(('<span class="fa fa-trash"></span>').html_safe, invoice,
+            method: :delete, class: "text-danger", title: "Delete Invoice", data: { confirm: 'Are you sure?' })
+= link_to(('<span class="fa fa-plus"></span> Create New Invoice').html_safe, new_invoice_path, class: "text-success")
