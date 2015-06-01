@@ -11,7 +11,7 @@
               %li= message
       .field.form-group
         = f.label :product_id
-        = f.text_field :product_id, class: "form-control"
+        = f.collection_select :product_id, Product.order(:name), :id, :name, include_blank: true, class: "form-control"
       .field.form-group
         = f.label :customer_name
         = f.text_field :customer_name, class: "form-control"
