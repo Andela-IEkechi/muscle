@@ -12,7 +12,7 @@
   %tbody
     - @invoices.each do |invoice|
       %tr
-        %td= invoice.product
+        %td= invoice.product.name
         %td= invoice.customer_name
         %td= invoice.customer_phone
         %td= invoice.invoice_number
