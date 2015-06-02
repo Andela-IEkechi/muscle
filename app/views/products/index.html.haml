@@ -13,6 +13,7 @@
           %td= product.name
           %td= product.quantity
           %td= product.user.name
-          %td= link_to 'Delete Product', product, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' }
-= link_to(raw('<span class="glyphicon glyphicon-plus"></span> Add New Product'), new_product_path)
+          %td= link_to(('<i class="fa fa-trash"></i> Delete Product').html_safe, product,
+          method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' })
+= link_to(('<i class="fa fa-plus"></i> Add New Product').html_safe, new_product_path, class: "text-success")
 

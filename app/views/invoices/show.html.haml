@@ -1,19 +1,25 @@
-%p#notice= notice
-%p
-  %strong Product:
-  = @invoice.product
-%p
-  %strong Customer name:
-  = @invoice.customer_name
-%p
-  %strong Customer phone:
-  = @invoice.customer_phone
-%p
-  %strong Invoice number:
-  = @invoice.invoice_number
-%p
-  %strong Customer address:
-  = @invoice.customer_address
+.table-responsive.show-tables
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th{:colspan => "2"}= "Invoice for: #{@invoice.customer_name}"
+    %tbody
+      %tr
+        %td
+          %strong Product:
+        %td= @invoice.product.name
+      %tr
+        %td
+          %strong Customer phone:
+        %td= @invoice.customer_phone
+      %tr
+        %td
+          %strong Invoice number:
+        %td= @invoice.invoice_number
+      %tr
+        %td
+          %strong Customer address:
+        %td= @invoice.customer_address
 = link_to 'Edit', edit_invoice_path(@invoice)
 |
 \#{link_to 'Back', invoices_path}

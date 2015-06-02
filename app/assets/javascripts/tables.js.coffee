@@ -10,3 +10,9 @@ jQuery ->
       { 'bSortable': false, 'aTargets': [ 2 ] }
     ]
   )
+
+  $('#invoices').dataTable(
+    "aoColumnDefs": [
+      { 'bSortable': false, 'aTargets': [ 0, 2, 4, 5 ] }
+    ]
+  )
