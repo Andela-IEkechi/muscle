@@ -18,7 +18,7 @@
           %td= link_to invoice.invoice_number, invoice, title: "View Invoice"
           %td= invoice.customer_address
           %td
-            = link_to(('<span class="fa fa-pencil-square-o"></span>').html_safe, edit_invoice_path(invoice), title: "Edit Invoice")
-            = link_to(('<span class="fa fa-trash"></span>').html_safe, invoice,
+            = link_to(('<i class="fa fa-pencil-square-o"></i>').html_safe, edit_invoice_path(invoice), title: "Edit Invoice")
+            = link_to(('<i class="fa fa-trash"></i>').html_safe, invoice,
             method: :delete, class: "text-danger", title: "Delete Invoice", data: { confirm: 'Are you sure?' })
-= link_to(('<span class="fa fa-plus"></span> Create New Invoice').html_safe, new_invoice_path, class: "text-success")
+= link_to(('<i class="fa fa-plus"></i> Create New Invoice').html_safe, new_invoice_path, class: "text-success")
