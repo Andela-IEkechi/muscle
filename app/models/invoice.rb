@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :product # todo remove this association
 
-  serialize :orders
+  serialize :purchase
 end

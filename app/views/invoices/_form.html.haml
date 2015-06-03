@@ -27,7 +27,7 @@
 
         .row.form-group
           .col-sm-6.col-lg-5
-            = f.collection_check_boxes(:orders, Product.order(:name), :id, :name, include_hidden: false) do |b|
+            = f.collection_check_boxes(:purchase, Product.order(:name), :name, :name, include_hidden: false) do |b|
               .check-box-container
                 .row
                   .col-xs-9

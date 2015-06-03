@@ -1,7 +1,7 @@
 class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
-      t.references :product, index: true
+      t.references :product, index: true #todo remove this
       t.string :customer_name
       t.integer :customer_phone
       t.integer :invoice_number
