@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150602181835) do
     t.text     "customer_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.text     "orders"
+    t.text     "purchase"
   end
 
   add_index "invoices", ["product_id"], name: "index_invoices_on_product_id", using: :btree
