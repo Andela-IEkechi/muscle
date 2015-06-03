@@ -1,5 +1,10 @@
 class Invoice < ActiveRecord::Base
-  belongs_to :product # todo remove this association
+  has_many :purchases
 
-  serialize :purchase
+  has_many :products,
+           :through => :purchases
+
+  accepts_nested_attributes_for :purchases,
+                                :allow_destroy => true
+  accepts_nested_attributes_for :products
 end

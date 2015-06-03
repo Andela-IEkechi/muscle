@@ -31,6 +31,9 @@ gem "haml-rails", "~> 0.9"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Cocoon makes it easier to handle nested forms.
+gem 'cocoon'
+
 # For including pagination and sorting order to tables
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 

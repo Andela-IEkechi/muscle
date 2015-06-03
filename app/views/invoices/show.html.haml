@@ -20,7 +20,7 @@
         %td
           %strong Purchases:
         %td
-          = @invoice.purchase.each do |order|
+          = @invoice.purchases.each do |order|
             = order
             %br
 = link_to 'Edit', edit_invoice_path(@invoice)

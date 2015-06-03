@@ -24,17 +24,18 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
+    binding.pry
     @invoice = Invoice.new(invoice_params)
 
-    respond_to do |format|
-      if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
-        format.json { render :show, status: :created, location: @invoice }
-      else
-        format.html { render :new }
-        format.json { render json: @invoice.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @invoice.save
+    #     format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+    #     format.json { render :show, status: :created, location: @invoice }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @invoice.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /invoices/1
@@ -69,6 +70,7 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:product_id, :customer_name, :customer_phone, :invoice_number, :customer_address, purchase: [])
+      params.require(:invoice).permit(:product_id, :customer_name, :customer_phone,
+                                      :invoice_number, :customer_address, purchases_attributes: [:product_id, :invoice_id, :quantity])
     end
 end
