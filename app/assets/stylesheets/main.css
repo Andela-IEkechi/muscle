@@ -35,3 +35,7 @@ fieldset {
 .size-5 {
     width: 50px;
 }
+
+span .fa-database {
+    margin-left: 10px;
+}

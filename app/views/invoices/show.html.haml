@@ -20,8 +20,14 @@
         %td
           %strong Purchases:
         %td
-          = @invoice.purchases.each do |order|
-            = order
+          - @invoice.purchases.each do |purchase|
+            .row
+              .col-sm-4
+                = purchase.product.name
+              .col-sm-3
+                = purchase.quantity
+                %span
+                  %i.fa.fa-database Crates
             %br
 = link_to 'Edit', edit_invoice_path(@invoice)
 |
