@@ -16,9 +16,8 @@
           %td= invoice.customer_name
           %td= invoice.customer_phone
           %td
-            = invoice.purchase.each do |order|
-              = order
-              %br
+            - invoice.purchases.each do |purchase|
+              = purchase.product.name
           %td= invoice.customer_address
           %td
             = link_to(('<i class="fa fa-pencil-square-o"></i>').html_safe, edit_invoice_path(invoice), title: "Edit Invoice")
