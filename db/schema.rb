@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150603222905) do
   add_index "consignments", ["user_id"], name: "index_consignments_on_user_id", using: :btree
 
   create_table "invoices", force: :cascade do |t|
+    t.integer  "product_id"
     t.string   "customer_name"
     t.integer  "customer_phone"
     t.integer  "invoice_number"
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150603222905) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  add_index "invoices", ["product_id"], name: "index_invoices_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -92,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150603222905) do
 
   add_foreign_key "consignments", "products"
   add_foreign_key "consignments", "users"
+  add_foreign_key "invoices", "products"
   add_foreign_key "products", "users"
   add_foreign_key "purchases", "invoices"
   add_foreign_key "purchases", "products"
