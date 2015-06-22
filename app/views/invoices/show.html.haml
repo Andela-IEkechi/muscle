@@ -6,20 +6,29 @@
     %tbody
       %tr
         %td
-          %strong Product:
-        %td= @invoice.product.name
+          %strong Invoice number:
+        %td= @invoice.invoice_number
       %tr
         %td
           %strong Customer phone:
         %td= @invoice.customer_phone
       %tr
         %td
-          %strong Invoice number:
-        %td= @invoice.invoice_number
-      %tr
-        %td
           %strong Customer address:
         %td= @invoice.customer_address
+      %tr
+        %td
+          %strong Purchases:
+        %td
+          - @invoice.purchases.each do |purchase|
+            .row
+              .col-sm-4
+                = purchase.product.name
+              .col-sm-3
+                = purchase.quantity
+                %span
+                  %i.fa.fa-database Crates
+            %br
 = link_to 'Edit', edit_invoice_path(@invoice)
 |
 \#{link_to 'Back', invoices_path}

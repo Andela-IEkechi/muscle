@@ -3,19 +3,21 @@
   %table#invoices.table.table-bordered.table-hover
     %thead
       %tr
-        %th Product
+        %th Invoice number
         %th Customer name
         %th Customer phone
-        %th Invoice number
+        %th Products
         %th Customer address
         %th Actions
     %tbody
       - @invoices.each do |invoice|
         %tr
-          %td= invoice.product.name
+          %td= link_to invoice.invoice_number, invoice, title: "View Invoice"
           %td= invoice.customer_name
           %td= invoice.customer_phone
-          %td= link_to invoice.invoice_number, invoice, title: "View Invoice"
+          %td
+            - invoice.purchases.each do |purchase|
+              = purchase.product.name
           %td= invoice.customer_address
           %td
             = link_to(('<i class="fa fa-pencil-square-o"></i>').html_safe, edit_invoice_path(invoice), title: "Edit Invoice")
