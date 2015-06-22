@@ -14,3 +14,7 @@ form input[type=submit] {
 form input[type=submit]:hover {
     background-color: #707200;
 }
+
+.show-tables {
+    margin-top: 50px;
+}
