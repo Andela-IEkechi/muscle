@@ -25,6 +25,7 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.invoice_number = SecureRandom.hex(4)
 
     respond_to do |format|
       if @invoice.save
