@@ -1,24 +1,25 @@
-%p#notice= notice
-%h1 Listing Releases
+%h1 Listing releases
+
 %table
   %thead
     %tr
-      %th Product
-      %th Quantity
       %th User
-      %th Invoice number
-      %th Customer number
-      %th{:colspan => "3"}
+      %th Purchase
+      %th Confirmation code
+      %th
+      %th
+      %th
+
   %tbody
     - @releases.each do |release|
       %tr
-        %td= release.product
-        %td= release.quantity
         %td= release.user
-        %td= release.invoice_number
-        %td= release.customer_number
+        %td= release.purchase
+        %td= release.confirmation_code
         %td= link_to 'Show', release
         %td= link_to 'Edit', edit_release_path(release)
-        %td= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %td= link_to 'Destroy', release, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
 = link_to 'New Release', new_release_path

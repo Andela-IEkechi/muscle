@@ -10,4 +10,4 @@
       .navbar-text.pull-right
         = succeed "." do
           %strong= current_user.name
-        = link_to(('<i class="fa fa-sign-out"></i> Logout').html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link')
+        = link_to(('<i class="fa fa-power-off"></i> Logout').html_safe, destroy_user_session_path, method: :delete, class: 'btn navbar-link')

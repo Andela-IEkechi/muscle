@@ -69,6 +69,6 @@ class ReleasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def release_params
-      params.require(:release).permit(:product_id, :quantity, :user_id, :invoice_number, :customer_number)
+      params.require(:release).permit(:user_id, :purchase_id, :confirmation_code)
     end
 end

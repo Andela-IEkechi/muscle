@@ -7,7 +7,7 @@
       %tr
         %td
           %strong Invoice number:
-        %td= @invoice.invoice_number
+        %td= @invoice.invoice_number.upcase
       %tr
         %td
           %strong Customer phone:
@@ -28,6 +28,9 @@
                 = purchase.quantity
                 %span
                   %i.fa.fa-database Crates
+              .col-sm-3
+                = link_to new_release_path(purchase) do
+                  %i.btn.fa.fa-check-square-o.text-success
             %br
 = link_to 'Edit', edit_invoice_path(@invoice)
 |

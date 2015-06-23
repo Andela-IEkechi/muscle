@@ -1,19 +1,15 @@
 %p#notice= notice
+
 %p
-  %strong Product:
-  = @release.product
-%p
-  %strong Quantity:
-  = @release.quantity
-%p
-  %strong User:
+  %b User:
   = @release.user
 %p
-  %strong Invoice number:
-  = @release.invoice_number
+  %b Purchase:
+  = @release.purchase
 %p
-  %strong Customer number:
-  = @release.customer_number
+  %b Confirmation code:
+  = @release.confirmation_code
+
 = link_to 'Edit', edit_release_path(@release)
-|
-\#{link_to 'Back', releases_path}
+\|
+= link_to 'Back', releases_path

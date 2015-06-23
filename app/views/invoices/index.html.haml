@@ -12,7 +12,7 @@
     %tbody
       - @invoices.each do |invoice|
         %tr
-          %td= link_to invoice.invoice_number, invoice, title: "View Invoice"
+          %td= link_to invoice.invoice_number.upcase, invoice, title: "View Invoice"
           %td= invoice.customer_name
           %td= invoice.customer_phone
           %td

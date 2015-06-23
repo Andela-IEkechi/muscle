@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :releases
+
   root 'products#index'
   resources :invoices
-  resources :releases
   resources :consignments, skip: [:edit, :update, :show, :destroy]
   resources :products
   devise_for :users, skip: [:registrations]

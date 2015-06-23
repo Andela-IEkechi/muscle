@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603222905) do
+ActiveRecord::Schema.define(version: 20150622224718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,20 +28,24 @@ ActiveRecord::Schema.define(version: 20150603222905) do
   add_index "consignments", ["user_id"], name: "index_consignments_on_user_id", using: :btree
 
   create_table "invoices", force: :cascade do |t|
+    t.integer  "product_id"
     t.string   "customer_name"
-    t.integer  "customer_phone"
-    t.integer  "invoice_number"
+    t.string   "customer_phone"
+    t.string   "invoice_number"
     t.text     "customer_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
+  add_index "invoices", ["product_id"], name: "index_invoices_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "quantity"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.float    "cost_per_product", default: 0.0
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -50,24 +54,24 @@ ActiveRecord::Schema.define(version: 20150603222905) do
     t.integer  "product_id"
     t.integer  "invoice_id"
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "confirmation_code"
+    t.boolean  "collected",         default: false
   end
 
   add_index "purchases", ["invoice_id"], name: "index_purchases_on_invoice_id", using: :btree
   add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
 
   create_table "releases", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "quantity"
     t.integer  "user_id"
-    t.integer  "invoice_number"
-    t.integer  "customer_number"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "purchase_id"
+    t.string   "confirmation_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "releases", ["product_id"], name: "index_releases_on_product_id", using: :btree
+  add_index "releases", ["purchase_id"], name: "index_releases_on_purchase_id", using: :btree
   add_index "releases", ["user_id"], name: "index_releases_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -92,9 +96,10 @@ ActiveRecord::Schema.define(version: 20150603222905) do
 
   add_foreign_key "consignments", "products"
   add_foreign_key "consignments", "users"
+  add_foreign_key "invoices", "products"
   add_foreign_key "products", "users"
   add_foreign_key "purchases", "invoices"
   add_foreign_key "purchases", "products"
-  add_foreign_key "releases", "products"
+  add_foreign_key "releases", "purchases"
   add_foreign_key "releases", "users"
 end
