@@ -31,7 +31,11 @@
               .col-sm-3
                 = link_to new_release_path(purchase) do
                   %i.btn.fa.fa-check-square-o.text-success
+                %i.btn.fa.fa-check-square-o.text-success{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
             %br
 = link_to 'Edit', edit_invoice_path(@invoice)
 |
-\#{link_to 'Back', invoices_path}
+= link_to 'Back', invoices_path
+
+
+=render 'confirmation_modal', purchase: 'fertile'

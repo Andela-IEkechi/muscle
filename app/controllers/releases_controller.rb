@@ -24,17 +24,18 @@ class ReleasesController < ApplicationController
   # POST /releases
   # POST /releases.json
   def create
+    binding.pry
     @release = Release.new(release_params)
 
-    respond_to do |format|
-      if @release.save
-        format.html { redirect_to @release, notice: 'Release was successfully created.' }
-        format.json { render :show, status: :created, location: @release }
-      else
-        format.html { render :new }
-        format.json { render json: @release.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @release.save
+    #     format.html { redirect_to @release, notice: 'Release was successfully created.' }
+    #     format.json { render :show, status: :created, location: @release }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @release.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /releases/1

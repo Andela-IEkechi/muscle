@@ -1,0 +1,19 @@
+/ Modal
+#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title Modal title
+      .modal-body
+        = form_tag({controller: :releases, :action => 'create'}) do
+          .field
+            = hidden_field_tag :purchase, purchase
+          .field.form-group
+            = label_tag "Confirmation Code"
+            = text_field_tag :confirmation_code, nil, class: 'form-control'
+          .actions.btn-default
+            = submit_tag 'Confirm'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel

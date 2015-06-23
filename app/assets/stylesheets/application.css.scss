@@ -38,18 +38,13 @@ body {
 }
 
 .content_wrapper {
-  position: fixed;
+  position: absolute;
   background-color: #fff;
   overflow-y: scroll;
   top: 60px;
   bottom: 0;
   padding: 0 50px 30px;
 }
-//
-//.huge {
-//    font-size: 50px;
-//    line-height: normal;
-//}
 
 .sidebar {
   background-color: #707473;
