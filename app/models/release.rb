@@ -9,9 +9,8 @@ class Release < ActiveRecord::Base
   #todo validates uniqueness of a purchase how?
 
   private
-
   def confirmation_code_check
-    errors.add(:confirmation_code, "Wrong confirmation code!") unless params[:confirmation_code] == purchase.confirmation_code
+    errors.add(:confirmation_code, "Wrong confirmation code!") unless self.confirmation_code == self.purchase.confirmation_code
   end
 
   def check_if_collected

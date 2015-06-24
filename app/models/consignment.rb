@@ -6,14 +6,14 @@ class Consignment < ActiveRecord::Base
   validates :quantity, numericality: { greater_than_or_equal_to: 0 }
   validate :validate_product_id
 
+  after_commit :keep_product_in_sync, on: :create
+
 
   private
 
   def validate_product_id
     errors.add(:product_id, "we have no such product!") unless Product.exists?(self.product_id)
   end
-
-  after_commit :keep_product_in_sync, on: :create
 
   def keep_product_in_sync
     product.increment!(:quantity, quantity)

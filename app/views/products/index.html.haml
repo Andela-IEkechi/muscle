@@ -5,6 +5,7 @@
       %tr
         %th Name
         %th Quantity
+        %th Price Per Unit
         %th Added By
         %th Actions
     %tbody
@@ -12,8 +13,12 @@
         %tr
           %td= product.name
           %td= product.quantity
+          %td= product.cost_per_product
           %td= product.user.name
-          %td= link_to(('<i class="fa fa-trash"></i> Delete Product').html_safe, product,
-          method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' })
+          %td
+            .row
+              .col-sm-6= link_to(('<i class="fa fa-trash"></i> Delete Product').html_safe, product,
+              method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' })
+              .col-sm-6= link_to(('<i class="fa fa-pencil"></i> Change Price').html_safe, edit_product_path(product), class: "text-info")
 = link_to(('<i class="fa fa-plus"></i> Add New Product').html_safe, new_product_path, class: "text-success")
 
