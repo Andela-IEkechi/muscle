@@ -16,3 +16,9 @@ jQuery ->
       { 'bSortable': false, 'aTargets': [ 0, 2, 4, 5 ] }
     ]
   )
+
+  $('#releases').dataTable(
+    "aoColumnDefs": [
+      { 'bSortable': false, 'aTargets': [ 2, 3 ] }
+    ]
+  )

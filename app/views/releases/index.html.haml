@@ -1,25 +1,20 @@
 %h1 Listing releases
-
-%table
-  %thead
-    %tr
-      %th User
-      %th Purchase
-      %th Confirmation code
-      %th
-      %th
-      %th
-
-  %tbody
-    - @releases.each do |release|
+.table-responsive
+  %table.table.table-bordered.table-hover#releases
+    %thead
       %tr
-        %td= release.user
-        %td= release.purchase
-        %td= release.confirmation_code
-        %td= link_to 'Show', release
-        %td= link_to 'Edit', edit_release_path(release)
-        %td= link_to 'Destroy', release, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Buyer
+        %th Product
+        %th Quantity
+        %th Confirmation code
+        %th Released By
 
-%br
-
-= link_to 'New Release', new_release_path
+    %tbody
+      - @releases.each do |release|
+        %tr
+          %td= release.purchase.invoice.customer_name
+          %td= release.purchase.product.name
+          %td= release.purchase.product.quantity
+          %td= release.confirmation_code
+          %td= release.user.name
+  %br
