@@ -34,10 +34,3 @@
                                                                       :type => "button",
                                                                       :id => purchase.id}
             %br
-= link_to 'Edit', edit_invoice_path(@invoice)
-= link_to "Download me as a PDF", invoice_path(@invoice, format: :pdf)
-|
-= link_to 'Back', invoices_path
-
-
-=render 'confirmation_modal', purchase: ''

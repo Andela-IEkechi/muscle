@@ -37,6 +37,9 @@ gem 'cocoon'
 # For including pagination and sorting order to tables
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
+# for generating PDFs
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
