@@ -24,18 +24,17 @@ class ReleasesController < ApplicationController
   # POST /releases
   # POST /releases.json
   def create
-    binding.pry
-    @release = Release.new(release_params)
+    @release = Release.new(build_release)
 
-    # respond_to do |format|
-    #   if @release.save
-    #     format.html { redirect_to @release, notice: 'Release was successfully created.' }
-    #     format.json { render :show, status: :created, location: @release }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @release.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @release.save
+        format.html { redirect_to :back, notice: 'Purchase successfully checked off.' }
+        format.json { render :show, status: :created, location: @release }
+      else
+        format.html { redirect_to :back, alert: 'Error occurred, please try again' }
+        format.json { render json: @release.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /releases/1
@@ -66,6 +65,14 @@ class ReleasesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_release
       @release = Release.find(params[:id])
+    end
+
+    def build_release
+      {
+        confirmation_code: params[:confirmation_code],
+        user: current_user,
+        purchase: Purchase.find(params[:purchase])
+      }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

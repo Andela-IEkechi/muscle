@@ -29,13 +29,14 @@
                 %span
                   %i.fa.fa-database Crates
               .col-sm-3
-                = link_to new_release_path(purchase) do
-                  %i.btn.fa.fa-check-square-o.text-success
-                %i.btn.fa.fa-check-square-o.text-success{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                %i.btn.fa.fa-check-square-o.text-success.modal-check{"data-target" => "#myModal",
+                                                                      "data-toggle" => "modal",
+                                                                      :type => "button",
+                                                                      :id => purchase.id}
             %br
 = link_to 'Edit', edit_invoice_path(@invoice)
 |
 = link_to 'Back', invoices_path
 
 
-=render 'confirmation_modal', purchase: 'fertile'
+=render 'confirmation_modal', purchase: ''

@@ -13,7 +13,5 @@
           .field.form-group
             = label_tag "Confirmation Code"
             = text_field_tag :confirmation_code, nil, class: 'form-control'
-          .actions.btn-default
-            = submit_tag 'Confirm'
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          .actions
+            = submit_tag 'Confirm', class: 'btn btn-lg btn-primary btn-block'
