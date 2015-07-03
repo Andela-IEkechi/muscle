@@ -13,7 +13,8 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "invoice", show_as_html: params[:debug]
+        render :pdf => "invoice",
+               show_as_html: params[:debug] #this is for showing pdf in html for debugging.
       end
     end
   end

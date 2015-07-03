@@ -2,10 +2,10 @@
 %html
   %head
     %title SyncDuct
-    = wicked_pdf_stylesheet_link_tag    'application', :media => "all"
+    = wicked_pdf_stylesheet_link_tag 'application.css.scss'
     = wicked_pdf_javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     .content_wrapper
-      -#= wicked_pdf_image_tag 'logo.png', width: "150", class: "logo"
+      = wicked_pdf_image_tag 'logo.jpg', width: "150", class: "logo"
       = yield
