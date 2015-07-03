@@ -1,4 +1,4 @@
 WickedPdf.config = {
-    layout: "pdf.html",
+    layout: "layouts/pdf.html.haml",
     exe_path: '/usr/local/bin/wkhtmltopdf'
 }

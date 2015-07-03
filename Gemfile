@@ -38,8 +38,8 @@ gem 'cocoon'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 # for generating PDFs
-gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
